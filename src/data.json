@@ -1,0 +1,52 @@
+{
+  "Dialogue": [
+    {
+      "text": "Your turn, Choose which action you want to perform:",
+      "options": [
+        "attack",
+        "defend",
+        "magic",
+        "pass"
+      ],
+      "nextDialogue": "qwerz"
+    },
+    {
+      "text": "Your turn, Choose which action you want to perform:",
+      "options": [
+        "attack",
+        "defend",
+        "magic",
+        "pass"
+      ],
+      "nextDialogue": "qwerz"
+    },{
+      "text": "Your turn, Choose which action you want to perform:",
+      "options": [
+        "attack",
+        "defend",
+        "magic",
+        "pass"
+      ],
+      "nextDialogue": "qwerz"
+    }
+  ],
+  "Locations": [
+    {
+      "name": "Entry hall",
+      "entities": [
+        "Key",
+        "Coin",
+        "Sword"
+      ]
+    },
+    {
+      "name": "Prison",
+      "entities": [
+        "Magician",
+        "Zombie",
+        "Axe",
+        "Golden Key"
+      ]
+    }
+  ]
+}
