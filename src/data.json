@@ -14,18 +14,8 @@
   "Stationary": [
     {
       "name": "Snackautomat",
-      "description": "Verkauft Schokoladentafeln"
-    }
-  ],
-  "NPC": [
-    {
-      "name": "Snackautomat",
       "description": "Verkauft Schokoladentafeln",
-      "options": [{
-        "optionCheck": "Schlüssel",
-        "optionID": "",
-        "nextDialogue": ""
-      }]
+      "dialogue": "snack-dialogue"
     }
   ],
   "Locations": [
@@ -43,16 +33,27 @@
         "Snackautomat"
       ]
     }
+  ],
+  "dialogues": [
+    {
+      "id": "snack-dialogue",
+      "lines": [
+        {
+          "text": "Ein beliebter Snackautomat",
+          "choices": [
+            {
+              "text": "Schokolade kaufen (1 Münze)",
+              "nextDialogue": "Schokolade gekauft",
+              "conditions": "Münze",
+              "remove": "Münze"
+            },
+            {
+              "text": "Zurück zur Eingangshalle",
+              "nextDialogue": null
+            }
+          ]
+        }
+      ]
+    }
   ]
-}
-
-options = {"npcThomas1-1": "Schlafen",
-  "o2": "Bewegen"
-}
-
-Dialogues = {
-  "d1": {
-    "description": "Hallo Was machst du jetzt?",
-    "availableOptions": ["01","01"]
-  }
 }

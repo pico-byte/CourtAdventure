@@ -7,6 +7,7 @@ public class Game {
     ArrayList<Item> inventory;
 
     public Game(){
-
+        locations = new ArrayList<Location>();
+        inventory = new ArrayList<Item>();
     }
 }
