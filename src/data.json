@@ -1,52 +1,58 @@
 {
-  "Dialogue": [
+  "Items": [
     {
-      "text": "Your turn, Choose which action you want to perform:",
-      "options": [
-        "attack",
-        "defend",
-        "magic",
-        "pass"
-      ],
-      "nextDialogue": "qwerz"
+      "name": "Schlüssel",
+      "description": "Ein alter, einfacher Schlüssel",
+      "value": 100
     },
     {
-      "text": "Your turn, Choose which action you want to perform:",
-      "options": [
-        "attack",
-        "defend",
-        "magic",
-        "pass"
-      ],
-      "nextDialogue": "qwerz"
-    },{
-      "text": "Your turn, Choose which action you want to perform:",
-      "options": [
-        "attack",
-        "defend",
-        "magic",
-        "pass"
-      ],
-      "nextDialogue": "qwerz"
+      "name": "Münze",
+      "description": "Eine einfache Münze",
+      "value": 100
+    }
+  ],
+  "Stationary": [
+    {
+      "name": "Snackautomat",
+      "description": "Verkauft Schokoladentafeln"
+    }
+  ],
+  "NPC": [
+    {
+      "name": "Snackautomat",
+      "description": "Verkauft Schokoladentafeln",
+      "options": [{
+        "optionCheck": "Schlüssel",
+        "optionID": "",
+        "nextDialogue": ""
+      }]
     }
   ],
   "Locations": [
     {
-      "name": "Entry hall",
-      "entities": [
-        "Key",
-        "Coin",
-        "Sword"
-      ]
-    },
-    {
-      "name": "Prison",
-      "entities": [
-        "Magician",
-        "Zombie",
-        "Axe",
-        "Golden Key"
+      "name": "courtyard",
+      "description": "",
+      "npcs": [
+        "Richter",
+        "Wächter"
+      ],
+      "items": [
+        "Münze"
+      ],
+      "stationary": [
+        "Snackautomat"
       ]
     }
   ]
+}
+
+options = {"npcThomas1-1": "Schlafen",
+  "o2": "Bewegen"
+}
+
+Dialogues = {
+  "d1": {
+    "description": "Hallo Was machst du jetzt?",
+    "availableOptions": ["01","01"]
+  }
 }
