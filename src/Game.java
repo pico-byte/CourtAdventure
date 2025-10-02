@@ -3,76 +3,104 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Game {
+    /*** Alle definierten Orte**/
     ArrayList<Location> locations;
+
+    /*** Der Ort, wo der Spieler sich aktuell befindet**/
     Location currentLocation;
 
+    /**Alle definierten Dialoge**/
     HashMap<String, Dialogue> dialogues;
+    /**Das Inventar des Spielers**/
     ArrayList<Item> inventory;
 
-    Scanner scanner;
-
+    /**Konstruktor der Game Klasse. Benötigt keine Parameter, weil alle Daten aus der Data Klasse kommen**/
     public Game() {
         locations = Data.locations;
         dialogues = Data.dialogues;
         inventory = new ArrayList<>();
-        scanner = new Scanner(System.in);
-
-
         currentLocation = locations.getFirst();
     }
 
+    /**Startet das Adventure. Gibt einen coolen Header aus und beginnt den Game loop**/
     public void play() {
-        IO.out("Willkommen zum Text-Adventure!");
+        IO.out("  _______        _                 _                 _                  \n" +
+                " │__   __│      │ │       ╱╲      │ │               │ │                 \n" +
+                "    │ │ _____  _│ │_     ╱  ╲   __│ │_   _____ _ __ │ │_ _   _ _ __ ___ \n" +
+                "    │ │╱ _ ╲ ╲╱ ╱ __│   ╱ ╱╲ ╲ ╱ _` ╲ ╲ ╱ ╱ _ ╲ '_ ╲│ __│ │ │ │ '__╱ _ ╲\n" +
+                "    │ │  __╱>  <│ │_   ╱ ____ ╲ (_│ │╲ V ╱  __╱ │ │ │ │_│ │_│ │ │ │  __╱\n" +
+                "    │_│╲___╱_╱╲_╲╲__│ ╱_╱    ╲_╲__,_│ ╲_╱ ╲___│_│ │_│╲__│╲__,_│_│  ╲___│\n" +
+                "                                                                        \n" +
+                "                    Made in a TextAdventure Engine                      \n" +
+                "\n \n ------------------------------------------------------------------------"
+        );
+        IO.out("Willkommen in diesem Text-Adventure! Verwende den Befehl \"help\" um die Liste mit allen Befehlen zu sehen" +
+                "\n Groß und Kleinschreibung bei den Namen der Orte, items usw. spielt KEINE Rolle! Und viele der Befehle haben Kurzformen (mehr unter \"help\")");
+        IO.out(" ------------------------------------------------------------------------" + "\n\n");
         while (true) {
             showLocation();
-            String input = IO.ask("\nBefehl? (move {Ort}, inspect {Objekt}, talk {NPC/Objekt}, take {Item}, inv, quit)");
+            String input = IO.ask("\n \n >> ");
             handleCommand(input);
         }
     }
 
+    /**Gibt den Aktuellen Ort, zusammen mit allen dort zu findenden Items und NPCs**/
     private void showLocation() {
-        IO.out("\n --- Standort: " + currentLocation.name + " ---");
+        IO.out("\n ------- Standort: " + currentLocation.name + " -------");
         IO.out(currentLocation.description);
 
-
-        IO.out("Items an diesem Ort:");
-        for (Item i : currentLocation.items) {
-            IO.out(" - " + i.name);
-        }
-
-        if (!currentLocation.stationaries.isEmpty()) {
-            IO.out("Menschen und andere Objekte:");
-            for (Stationary s : currentLocation.stationaries) {
-                IO.out(" - " + s.name);
-            }
-        }
+        IO.out("");
 
         IO.out("Mögliche Orte:");
         for (Location l : locations) {
             if (l != currentLocation) {
-                IO.out(" - " + l.name);
+                IO.outLine(" | " + l.name);
             }
+        }
+        IO.outLine(" |");
+
+        IO.out("\n");
+
+        IO.out("Items an diesem Ort:");
+        for (Item i : currentLocation.items) {
+            IO.outLine(" | " + i.name);
+        }
+        IO.outLine(" |");
+
+        IO.out("\n");
+        if (!currentLocation.stationaries.isEmpty()) {
+            IO.out("Menschen und andere Objekte:");
+            for (Stationary s : currentLocation.stationaries) {
+                IO.outLine(" | " + s.name);
+            }
+            IO.outLine("  |");
         }
     }
 
+    /**Liest die Commands des Spielers aus der Konsole ein
+     * @param input ist die Eingabe des Spielers**/
     private void handleCommand(String input) {
         String[] parts = input.split(" ", 2);
         String cmd = parts[0].toLowerCase();
 
         switch (cmd) {
-            case "move", "goto":
+            case "move", "goto", "cd", "mv", "m":
                 if (parts.length > 1) moveTo(parts[1]);
                 else IO.out("Wohin möchtest du gehen?");
                 break;
-            case "inspect":
+            case "interact", "i":
+                if (parts.length > 1) interact(parts[1]);
+                else IO.out("Mit wem oder was willst du interagieren?");
+                break;
+            case "inspect", "spec":
                 if (parts.length > 1) inspect(parts[1]);
                 else IO.out("Wen oder was willst du inspizieren?");
                 break;
-            case "take":
+            case "take", "t":
                 if (parts.length > 1) takeItem(parts[1]);
                 else IO.out("Welches Item willst du nehmen?");
                 break;
-            case "talk":
+            case "talk", "bla":
                 if (parts.length > 1) talk(parts[1]);
                 else IO.out("Mit wem willst du sprechen?");
                 break;
@@ -83,11 +111,23 @@ public class Game {
                 IO.out("Spiel beendet!");
                 System.exit(0);
                 break;
+            case "help":
+                IO.out("Folgende Befehle Kannst du verwenden (Keine Klammern, einfach nur Befehl + Parameter) \n Besonders wichtig: \n - move {Name des Ortes}       Alternativ auch: \"move\", \"goto\", \"cd\", \"mv\", \"m\"  " +
+                        "\n - interact {Objekt}     Alternativ: \"i\"" +
+                        "\n - take {Item}           Alternativ \"t\"" +
+                        "\n - inventory             Alternativ: \"inv\"" +
+                        "\n Weitere Befehle die interessant sein könnten: " +
+                        "\n - inspect {Objekt}      Alternativ: \"spec\"" +
+                        "\n - talk {NPC/Objekt}     Alternativ: \"talk\", \"bla\"" +
+                        "\n - quit");
+                break;
             default:
                 IO.out("Unbekannter Befehl!");
         }
     }
 
+    /**CMD - Bewegt den Spieler an einen neuen Ort
+     * @param locationName ist der Name des neuen Ortes**/
     private void moveTo(String locationName) {
         for (Location l : locations) {
             if (l.name.equalsIgnoreCase(locationName)) {
@@ -99,13 +139,70 @@ public class Game {
         IO.out("Kein Ort gefunden mit dem Namen: " + locationName);
     }
 
+    /** Durchsucht den Ort, das Inventar und die restlichen Interactables nach diesem Item oder Interactable NPC/Stationary und führt den Hauptverwendungszweck aus. inspect für item (sinngemäß) und talk für stationary/NPCs
+     * @param name ist das zu betrachtende item/stationary**/
+    private void interact(String name){
+        for (Stationary s : currentLocation.stationaries) {
+            if (s.name.equalsIgnoreCase(name) && !s.dialogue.isEmpty()) {
+                //Findet das passendste Dialog
+                Dialogue d = pickDialogue(s.dialogue);
+                if (d != null) {
+                    //Führt den Dialog aus
+                    runDialogue(d, s.dialogue);
+                } else {
+                    IO.out(s.name + " ist gerade nicht ansprechbar.");
+                }
+                return;
+            }
+        }
+        for (Item i : currentLocation.items) {
+            if (i.name.equalsIgnoreCase(name) && !i.dialogue.isEmpty()) {
+                //Findet das passendste Dialog
+                Dialogue d = pickDialogue(i.dialogue);
+                if (d != null) {
+                    //Führt den Dialog aus
+                    runDialogue(d, i.dialogue);
+                } else {
+                    IO.out(i.name + " kannst du dir nicht anschauen");
+                }
+                return;
+            }
+        }
+        for (Item i : inventory) {
+            if (i.name.equalsIgnoreCase(name) && !i.dialogue.isEmpty()) {
+                //Findet das passendste Dialog
+                Dialogue d = pickDialogue(i.dialogue);
+                if (d != null) {
+                    //Führt den Dialog aus
+                    runDialogue(d, i.dialogue);
+                } else {
+                    IO.out(i.name + " kannst du dir nicht anschauen");
+                }
+                return;
+            }
+        }
+        IO.out("Hier gibt es niemanden mit dem Namen: " + name);
+    }
+
+
+    /** <<<OPTIONAL - ERSETZT DURCH INTERACT>>> Durchsucht das den Ort, das Inventar und die restlichen Interactables nach einem Item und ruft inspect dafür auf
+     * @param name ist das zu inspizierende item**/
     private void inspect(String name) {
+        //Durchsuchen des Ortes
         for (Item i : currentLocation.items) {
             if (i.name.equalsIgnoreCase(name)) {
                 IO.out(i.inspect());
                 return;
             }
         }
+        //Durchsuchen des Inventars
+        for (Item i : inventory) {
+            if (i.name.equalsIgnoreCase(name)) {
+                IO.out(i.inspect());
+                return;
+            }
+        }
+        //Durchsuchen der Stationären Items
         for (Stationary s : currentLocation.stationaries) {
             if (s.name.equalsIgnoreCase(name)) {
                 IO.out(s.inspect());
@@ -115,6 +212,8 @@ public class Game {
         IO.out("Nichts gefunden mit dem Namen: " + name);
     }
 
+    /**Entfernt ein item vom Ort und fügt es dem Inventar hinzu
+     * @param name Name des Items**/
     private void takeItem(String name) {
         Item found = null;
         for (Item i : currentLocation.items) {
@@ -132,11 +231,15 @@ public class Game {
         }
     }
 
+    /**Ausführen des passendsten Dialoges eines Stationären Interactables
+     * @param name Name des Interactable**/
     private void talk(String name) {
         for (Stationary s : currentLocation.stationaries) {
             if (s.name.equalsIgnoreCase(name) && !s.dialogue.isEmpty()) {
+                //Findet das passendste Dialog
                 Dialogue d = pickDialogue(s.dialogue);
                 if (d != null) {
+                    //Führt den Dialog aus
                     runDialogue(d, s.dialogue);
                 } else {
                     IO.out(s.name + " ist gerade nicht ansprechbar.");
@@ -147,23 +250,25 @@ public class Game {
         IO.out("Hier gibt es niemanden mit dem Namen: " + name);
     }
 
+    /**Suchen nach dem richtigen Dialog
+     * @param dialogues Liste mit dem Dialog eines bestimmten Objekts**/
     private Dialogue pickDialogue(ArrayList<Dialogue> dialogues) {
         for (Dialogue dialogue : dialogues) {
-            // Check if at least one choice is available (either no condition or condition is met)
+            //Überprüfen, ob es eine für den Spieler zugängliche Option im Dialog gibt
             boolean hasAvailableChoice = false;
 
             if (dialogue.choices == null || dialogue.choices.isEmpty()) {
-                // If dialogue has no choices, it's always available
+                //Dialog ohne Choices ist für den Spieler immer zugänglich
                 hasAvailableChoice = true;
             } else {
-                // Check if at least one choice is available
+                //Überprüfen, ob eine der Choices ausgeführt werden können
                 for (Choice choice : dialogue.choices) {
                     if (choice.conditionItem == null) {
-                        // Choice has no condition, so it's available
+                        //Unbedingte Choices können ime ausgewählt werden
                         hasAvailableChoice = true;
                         break;
                     } else {
-                        // Check if player has the required item for this choice
+                        //Bedingte Choices brauchen ein bestimmtes item im Inventar des Spielers
                         boolean hasItem = false;
                         for (Item item : inventory) {
                             if (item.name.equalsIgnoreCase(choice.conditionItem)) {
@@ -178,7 +283,6 @@ public class Game {
                     }
                 }
             }
-
             if (hasAvailableChoice) {
                 return dialogue;
             }
@@ -186,6 +290,9 @@ public class Game {
         return null;
     }
 
+    /**Ausführen des Dialogs
+     * @param dialogue Der Auszuführende Dialog
+     * @param dialogueList Liste mit dem Dialog des Objektes/Items**/
     private void runDialogue(Dialogue dialogue, ArrayList<Dialogue> dialogueList) {
         Dialogue current = dialogue;
         while (current != null) {
@@ -229,7 +336,7 @@ public class Game {
                 }
             }
 
-            //Hinzufügen des Belohnungs-Items zur Inventar
+            //Hinzufügen des Belohnungs-Items zum Inventar
             if (chosenChoice.rewardItem != null) {
                 if (Data.itemMap.containsKey(chosenChoice.rewardItem)) {
                     Item rewardItem = Data.itemMap.get(chosenChoice.rewardItem);
@@ -247,7 +354,8 @@ public class Game {
         }
     }
 
-
+    /**Auswahl einer Choice durch den Player
+     * @param maxNumber die Anzahl zur Verfügung stehenden choices**/
     private int askPlayerChoice(int maxNumber) {
         while (true) {
             String in = IO.ask("Wähle eine Option (1-" + maxNumber + "):");
@@ -262,6 +370,7 @@ public class Game {
         }
     }
 
+    /**Ausgabe des gesamten Inventars**/
     private void showInventory() {
         IO.out("\n--- Inventar ---");
         if (inventory.isEmpty()) {

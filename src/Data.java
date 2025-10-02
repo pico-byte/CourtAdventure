@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Data {
+    //Wieder alle Orte, Dialoge usw.
     public static ArrayList<Location> locations;
     public static HashMap<String, Dialogue> dialogues;
 
@@ -14,6 +15,8 @@ public class Data {
     public static HashMap<String, Item> itemMap;
     public static HashMap<String, Stationary> stationaryMap;
 
+    /**Interpretieren der Daten aus einer JSON Datei
+     * @param json Der JSON Inhalt als String**/
     public void parseArrayData(String json){
         JsonObject data = JsonParser.parseString(json).getAsJsonObject();
 
@@ -36,7 +39,7 @@ public class Data {
             dialogues.put(id, new Dialogue(text, onetime, choices));
         }
 
-        //Items aus der JSOn lesen
+        //Items aus der JSON lesen
         itemMap = new HashMap<>();
         JsonArray itemArray = data.getAsJsonArray("Items");
         for (JsonElement itemElem : itemArray) {
@@ -125,6 +128,7 @@ public class Data {
     }
 
 
+    /**Code Ausschnitt zum Interpretieren der Choices**/
     private static Choice getChoice(JsonElement c) {
         JsonObject choiceJ = c.getAsJsonObject();
         String cId = choiceJ.get("nextDialogueID").getAsString();
