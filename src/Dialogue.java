@@ -1,19 +1,14 @@
-import com.google.gson.internal.bind.util.ISO8601Utils;
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Optional;
 
 public class Dialogue {
+    boolean onetime;
     String text;
-    ArrayList<String> options;
-    Dialogue nextDialogue;
+    ArrayList<Choice> choices;
 
-
-    public Dialogue(String text, String... options){
+    public Dialogue(String text, boolean onetime, ArrayList<Choice> choices){
+        this.onetime = onetime;
         this.text = text;
-        this.options = new ArrayList<>(Arrays.asList(options));
+        this.choices = choices;
     }
 
 }

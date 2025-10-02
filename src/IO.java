@@ -1,17 +1,13 @@
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class IO {
-    public static String ask() {
-        return "q";
-    }
+    private static Scanner scanner = new Scanner(System.in);
 
     public static String ask(String question) {
         out(question);
-        return "q";
+        return scanner.nextLine();
     }
 
-    /*** Das printed ein sting s @param s ein beliebiger String */
     public static void out(String s) {
         System.out.println(s);
     }

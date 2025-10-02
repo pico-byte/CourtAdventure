@@ -1,59 +1,107 @@
 {
   "Items": [
     {
-      "name": "Schlüssel",
-      "description": "Ein alter, einfacher Schlüssel",
-      "value": 100
+      "name": "Münze",
+      "description": "Eine glänzende Goldmünze",
+      "value": 1,
+      "dialogues": ["inspect-coin"]
     },
     {
-      "name": "Münze",
-      "description": "Eine einfache Münze",
-      "value": 100
+      "name": "Schlüssel",
+      "description": "Ein alter, rostiger Schlüssel",
+      "value": 0,
+      "dialogues": ["inspect-key"]
     }
   ],
   "Stationary": [
     {
       "name": "Snackautomat",
-      "description": "Verkauft Schokoladentafeln",
-      "dialogue": "snack-dialogue"
+      "description": "Ein alter Automat mit Schokolade",
+      "dialogues": ["snack-dialogue"]
+    },
+    {
+      "name": "Wächter",
+      "description": "Ein strenger Wächter am Tor",
+      "dialogues": ["guard-dialogue"]
     }
   ],
   "Locations": [
     {
       "name": "courtyard",
-      "description": "",
-      "npcs": [
-        "Richter",
-        "Wächter"
-      ],
-      "items": [
-        "Münze"
-      ],
-      "stationary": [
-        "Snackautomat"
-      ]
+      "description": "Der Innenhof mit einem alten Brunnen.",
+      "items": ["Münze"],
+      "stationary": ["Snackautomat"]
+    },
+    {
+      "name": "gate",
+      "description": "Ein großes Tor, von einem Wächter bewacht.",
+      "items": ["Schlüssel"],
+      "stationary": ["Wächter"]
     }
   ],
   "dialogues": [
     {
+      "id": "inspect-coin",
+      "text": "Die Münze glänzt hell im Licht.",
+      "choices": []
+    },
+    {
+      "id": "inspect-key",
+      "text": "Der Schlüssel sieht wichtig aus.",
+      "choices": []
+    },
+    {
       "id": "snack-dialogue",
-      "lines": [
+      "text": "Ein Snackautomat summt leise.",
+      "onetime": false,
+      "choices": [
         {
-          "text": "Ein beliebter Snackautomat",
-          "choices": [
-            {
-              "text": "Schokolade kaufen (1 Münze)",
-              "nextDialogue": "Schokolade gekauft",
-              "conditions": "Münze",
-              "remove": "Münze"
-            },
-            {
-              "text": "Zurück zur Eingangshalle",
-              "nextDialogue": null
-            }
-          ]
+          "text": "Schokolade kaufen (1 Münze)",
+          "nextDialogueID": "snack-after-buy",
+          "condition": "Münze",
+          "remove": "Münze"
+        },
+        {
+          "text": "Nichts kaufen",
+          "nextDialogueID": "snack-cancel"
         }
       ]
+    },
+    {
+      "id": "snack-after-buy",
+      "text": "Du kaufst eine Schokolade. Lecker!",
+      "choices": []
+    },
+    {
+      "id": "snack-cancel",
+      "text": "Du gehst wieder vom Automaten weg.",
+      "choices": []
+    },
+    {
+      "id": "guard-dialogue",
+      "text": "Der Wächter mustert dich streng.",
+      "onetime": true,
+      "choices": [
+        {
+          "text": "Dem Wächter den Schlüssel zeigen",
+          "nextDialogueID": "guard-opens",
+          "condition": "Schlüssel"
+        },
+        {
+          "text": "Zurückgehen",
+          "nextDialogueID": "guard-ignore"
+        }
+      ]
+    },
+    {
+      "id": "guard-opens",
+      "text": "Der Wächter erkennt den Schlüssel und lässt dich passieren.",
+      "choices": []
+    },
+    {
+      "id": "guard-ignore",
+      "text": "Du wendest dich ab.",
+      "choices": []
     }
   ]
 }
