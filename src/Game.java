@@ -149,28 +149,37 @@ public class Game {
 
     private Dialogue pickDialogue(ArrayList<Dialogue> dialogues) {
         for (Dialogue dialogue : dialogues) {
-            boolean conditionOK = true;
-            if (dialogue.choices != null && !dialogue.choices.isEmpty()) {
-                for (int j = 0; j < dialogue.choices.size(); j++) {
-                    Choice choice = dialogue.choices.get(j);
-                    if (choice.conditionItem != null) {
+            // Check if at least one choice is available (either no condition or condition is met)
+            boolean hasAvailableChoice = false;
+
+            if (dialogue.choices == null || dialogue.choices.isEmpty()) {
+                // If dialogue has no choices, it's always available
+                hasAvailableChoice = true;
+            } else {
+                // Check if at least one choice is available
+                for (Choice choice : dialogue.choices) {
+                    if (choice.conditionItem == null) {
+                        // Choice has no condition, so it's available
+                        hasAvailableChoice = true;
+                        break;
+                    } else {
+                        // Check if player has the required item for this choice
                         boolean hasItem = false;
-                        //Schauen ob der Spieler das Schlüssel-Item hat
                         for (Item item : inventory) {
                             if (item.name.equalsIgnoreCase(choice.conditionItem)) {
                                 hasItem = true;
                                 break;
                             }
                         }
-                        if (!hasItem) {
-                            conditionOK = false;
+                        if (hasItem) {
+                            hasAvailableChoice = true;
                             break;
                         }
                     }
                 }
             }
 
-            if (conditionOK) {
+            if (hasAvailableChoice) {
                 return dialogue;
             }
         }
@@ -217,6 +226,15 @@ public class Game {
                         IO.out(chosenChoice.paymentItem + " wurde verbraucht.");
                         break;
                     }
+                }
+            }
+
+            //Hinzufügen des Belohnungs-Items zur Inventar
+            if (chosenChoice.rewardItem != null) {
+                if (Data.itemMap.containsKey(chosenChoice.rewardItem)) {
+                    Item rewardItem = Data.itemMap.get(chosenChoice.rewardItem);
+                    inventory.add(rewardItem);
+                    IO.out("Du hast " + rewardItem.name + " erhalten!");
                 }
             }
 

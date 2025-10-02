@@ -136,6 +136,9 @@ public class Data {
         if (choiceJ.has("remove")) {
             choice.setPaymentItem(choiceJ.get("remove").getAsString());
         }
+        if (choiceJ.has("reward")) {
+            choice.setRewardItem(choiceJ.get("reward").getAsString());
+        }
         return choice;
     }
 }

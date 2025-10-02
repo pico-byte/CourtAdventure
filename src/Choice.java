@@ -3,6 +3,7 @@ public class Choice {
     String nextDialogueID;
     String conditionItem;
     String paymentItem;
+    String rewardItem; // New field for items that get added to inventory
 
 
 
@@ -19,6 +20,7 @@ public class Choice {
         this.paymentItem = paymentItem;
     }
 
-
-
+    public void setRewardItem(String rewardItem) {
+        this.rewardItem = rewardItem;
+    }
 }
