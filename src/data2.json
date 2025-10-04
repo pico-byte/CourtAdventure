@@ -1,0 +1,523 @@
+{
+  "Items": [
+    {
+      "name": "Münze",
+      "description": "Eine glänzende Goldmünze. Kann im Automaten gegen Schokolade eingetauscht werden.",
+      "value": 1,
+      "dialogues": ["inspect-coin"]
+    },
+    {
+      "name": "Einfacher Schlüssel",
+      "description": "Ein unscheinbarer, alter Schlüssel. Er passt an eine Zellentür im Gefängnis.",
+      "value": 0,
+      "dialogues": ["inspect-simple-key"]
+    },
+    {
+      "name": "Schokolade",
+      "description": "Eine süße Schokoladentafel. Besonders nützlich zum Tauschen oder Bestechen.",
+      "value": 0,
+      "dialogues": ["inspect-chocolate"]
+    },
+    {
+      "name": "Beweisakte",
+      "description": "Beweisakte: In ihr steht klar und deutlich, dass der Angeklagte in der NACHT am Tatort gesehen wurde.",
+      "value": 0,
+      "dialogues": ["inspect-akte"]
+    },
+    {
+      "name": "Zeugenprotokoll",
+      "description": "Zeugenprotokoll: Ein Zeuge bestätigt, dass der Angeklagte zur MITTAGSZEIT in der BIBLIOTHEK war.",
+      "value": 0,
+      "dialogues": ["inspect-zeugen"]
+    },
+    {
+      "name": "Tatort-Skizze",
+      "description": "Skizze des Tatorts: Die Skizze zeigt, dass die Tatwaffe IM HOF gefunden wurde, nicht bei dir.",
+      "value": 0,
+      "dialogues": ["inspect-skizze"]
+    }
+  ],
+
+  "Stationary": [
+    {
+      "name": "Snackautomat",
+      "description": "Ein alter Automat mit Schokolade hinter Glas.",
+      "dialogues": ["snack-dialogue"]
+    },
+    {
+      "name": "Tor Wächter",
+      "description": "Ein mürrischer Wächter am Ausgang. Geld oder Süßes beeinflusst ihn.",
+      "dialogues": ["entry-guard"]
+    },
+    {
+      "name": "Richter",
+      "description": "Der Richter wartet im Gerichtssaal. Er führt den Prozess und stellt dir die Fragen.",
+      "dialogues": ["trial-start"]
+    },
+    {
+      "name": "Rezeption",
+      "description": "Die Empfangsdame verwaltet verlorene Gegenstände und Akten.",
+      "dialogues": ["reception-dialogue"]
+    },
+    {
+      "name": "Gefängniszelle",
+      "description": "Eine verschlossene Zellentür im Gefängnis. Sie lässt sich mit einem passenden Schlüssel öffnen.",
+      "dialogues": ["cell-dialogue"]
+    },
+    {
+      "name": "Obdachloser",
+      "description": "Ein abgemagerter Mann im Hinterhof. Er bietet dir einen Handel an.",
+      "dialogues": ["obdachloser-dialogue"]
+    },
+    {
+      "name": "Insasse",
+      "description": "Ein Gefangener, der möglicherweise Informationen hat — wenn du ihm hilfst.",
+      "dialogues": ["prisoner-dialogue"]
+    },
+    {
+      "name": "Gegnerischer Anwalt",
+      "description": "Der gegnerische Anwalt sitzt neben dem Richter und wirft dir böse Blicke zu.",
+      "dialogues": ["opposing-lawyer-dialogue"]
+    }
+  ],
+
+  "Locations": [
+    {
+      "name": "Gerichtssaal",
+      "description": "Ein großer, heller Gerichtssaal. Hier wird dein Schicksal entschieden. Auf einem Tisch liegt eine Tatort-Skizze.",
+      "items": ["Tatort-Skizze"],
+      "stationary": ["Richter", "Gegnerischer Anwalt"]
+    },
+    {
+      "name": "Eingangshalle",
+      "description": "Eine saubere Halle mit Rezeption und Snackautomat. Hinter der Tür steht ein Wächter.",
+      "items": [],
+      "stationary": ["Rezeption", "Snackautomat", "Tor Wächter"]
+    },
+    {
+      "name": "Gefängnis",
+      "description": "Dunkel und eng. Hier befinden sich Zellen und ein Insasse, der etwas wissen könnte.",
+      "items": [],
+      "stationary": ["Gefängniszelle", "Insasse"]
+    },
+    {
+      "name": "Hinterhof",
+      "description": "Ein schmutziger Hinterhof. Zwischen dem Müll glänzt etwas – eine Münze.",
+      "items": ["Münze"],
+      "stationary": ["Obdachloser"]
+    }
+  ],
+
+  "dialogues": [
+    {
+      "id": "inspect-coin",
+      "text": "Die Münze glänzt; sie kann im Automaten eingetauscht werden.",
+      "choices": []
+    },
+    {
+      "id": "inspect-simple-key",
+      "text": "Ein einfacher Schlüssel. Er könnte an einer Zellentür passen.",
+      "choices": []
+    },
+    {
+      "id": "inspect-chocolate",
+      "text": "Die Schokolade duftet verführerisch. Gut geeignet zum Tauschen oder Bestechen.",
+      "choices": []
+    },
+    {
+      "id": "inspect-akte",
+      "text": "Beweisakte: ‚Der Angeklagte wurde NACHTS am Tatort gesehen.‘ (Dieses Item befindet sich in deinem Inventar.)",
+      "choices": []
+    },
+    {
+      "id": "inspect-zeugen",
+      "text": "Zeugenprotokoll: ‚Der Zeuge beobachtete den Angeklagten MITTAGS in der BIBLIOTHEK.‘ (Dieses Item befindet sich in deinem Inventar.)",
+      "choices": []
+    },
+    {
+      "id": "inspect-skizze",
+      "text": "Tatort-Skizze: ‚Die Tatwaffe wurde IM HOF gefunden.‘ (Dieses Item befindet sich in deinem Inventar.)",
+      "choices": []
+    },
+
+    {
+      "id": "snack-dialogue",
+      "text": "Der Snackautomat zeigt glänzende Schokoladen hinter Glas.",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Schokolade kaufen (1 Münze)",
+          "nextDialogueID": "snack-after-buy",
+          "condition": "Münze",
+          "remove": "Münze",
+          "reward": "Schokolade"
+        },
+        {
+          "text": "Nicht kaufen",
+          "nextDialogueID": "snack-cancel"
+        }
+      ]
+    },
+    {
+      "id": "snack-after-buy",
+      "text": "Du wirfst die Münze ein, drückst den Knopf — eine Schokolade fällt heraus. Die Schokolade wurde deinem Inventar hinzugefügt.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "snack-cancel",
+      "text": "Du entscheidest dich, nichts zu kaufen.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "obdachloser-dialogue",
+      "text": "Der Obdachloser mustert dich misstrauisch und spricht dich an.",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Schokolade geben",
+          "nextDialogueID": "obdachloser-gives-key",
+          "condition": "Schokolade",
+          "remove": "Schokolade",
+          "reward": "Einfacher Schlüssel"
+        },
+        {
+          "text": "Ignorieren",
+          "nextDialogueID": "obdachloser-sad"
+        }
+      ]
+    },
+    {
+      "id": "obdachloser-gives-key",
+      "text": "Der Obdachloser nimmt die Schokolade dankbar und reicht dir einen alten Schlüssel. Der Schlüssel wurde deinem Inventar hinzugefügt.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "obdachloser-sad",
+      "text": "Der Obdachloser seufzt und wendet sich ab.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "prisoner-dialogue",
+      "text": "Der Insasse flüstert hinter den Gitterstäben: 'Ich weiß, wo eine Akte versteckt ist...'",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Schokolade geben (um seine Hilfe zu gewinnen)",
+          "nextDialogueID": "prisoner-gives-akte",
+          "condition": "Schokolade",
+          "remove": "Schokolade",
+          "reward": "Beweisakte"
+        },
+        {
+          "text": "Nach Hinweisen fragen",
+          "nextDialogueID": "prisoner-hint"
+        },
+        {
+          "text": "Gehen",
+          "nextDialogueID": "prisoner-leave"
+        }
+      ]
+    },
+    {
+      "id": "prisoner-gives-akte",
+      "text": "Der Insasse isst die Schokolade und reicht dir eine Beweisakte. Die Beweisakte wurde deinem Inventar hinzugefügt.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "prisoner-hint",
+      "text": "'Die Akte war in einer Zelle versteckt. Ein passender Schlüssel könnte die Tür öffnen.'",
+      "choices": [
+        {
+          "text": "Verstanden",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "prisoner-leave",
+      "text": "Du gehst weiter; der Insasse bleibt zurück und seufzt.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "cell-dialogue",
+      "text": "Die Zellentür ist fest verschlossen. Ein passender Schlüssel könnte sie öffnen.",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Mit dem einfachen Schlüssel öffnen (Schlüssel bleibt in deinem Inventar)",
+          "nextDialogueID": "cell-open",
+          "condition": "Einfacher Schlüssel",
+          "reward": "Beweisakte"
+        },
+        {
+          "text": "Weggehen",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "cell-open",
+      "text": "Die Tür klickt auf. Du findest eine Beweisakte in der Zelle. Die Beweisakte wurde deinem Inventar hinzugefügt.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "reception-dialogue",
+      "text": "Die Empfangsdame mustert deine Funde: 'Wenn du etwas vorzeigst, helfe ich dir gerne.'",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Einfachen Schlüssel vorzeigen",
+          "nextDialogueID": "reception-key-info",
+          "condition": "Einfacher Schlüssel",
+          "reward": "Zeugenprotokoll"
+        },
+        {
+          "text": "Tatort-Skizze vorzeigen",
+          "nextDialogueID": "reception-sketch",
+          "condition": "Tatort-Skizze",
+          "reward": "Zeugenprotokoll"
+        },
+        {
+          "text": "Nichts vorzeigen",
+          "nextDialogueID": "reception-farewell"
+        }
+      ]
+    },
+    {
+      "id": "reception-key-info",
+      "text": "Die Dame lächelt: 'Danke – das ist unser verlorener Schlüssel. Hier, nimm dieses Zeugenprotokoll.'\nDas Zeugenprotokoll wurde deinem Inventar hinzugefügt.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "reception-sketch",
+      "text": "Die Dame betrachtet die Skizze: 'Sehr nützlich. Hier ist eine Zusammenfassung der Zeugenaussagen.'\nDas Zeugenprotokoll wurde deinem Inventar hinzugefügt.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "reception-farewell",
+      "text": "Die Empfangsdame nickt freundlich und wendet sich wieder ihrer Arbeit zu.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "entry-guard",
+      "text": "Der Wächter am Tor knurrt: 'Niemand verlässt diesen Ort ohne Grund.'",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Mit Schokolade bestechen",
+          "nextDialogueID": "guard-bribe",
+          "condition": "Schokolade",
+          "remove": "Schokolade"
+        },
+        {
+          "text": "Anklopfen und fragen",
+          "nextDialogueID": "guard-ignore"
+        },
+        {
+          "text": "Weggehen",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+    {
+      "id": "guard-bribe",
+      "text": "Der Wächter schnappt die Schokolade und wendet sich ab. 'Na gut, geh schnell.'\nDu hast das Tor passiert — FLUCHT MÖGLICH (NEUTRALES ENDE).",
+      "choices": [
+        {
+          "text": "Spiel beenden",
+          "nextDialogueID": "game-over"
+        }
+      ]
+    },
+    {
+      "id": "guard-ignore",
+      "text": "Der Wächter bleibt misstrauisch und schenkt dir keine Beachtung.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "opposing-lawyer-dialogue",
+      "text": "Der gegnerische Anwalt sortiert seine Belege und lächelt schadenfroh.",
+      "choices": [
+        {
+          "text": "Weiter",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "trial-start",
+      "text": "Der Richter erhebt sich: 'Der Prozess beginnt. Ich werde dir drei Fragen stellen. Nur wenn du alle richtig beantwortest, wirst du freigesprochen.'",
+      "onetime": true,
+      "choices": [
+        {
+          "text": "Los geht's",
+          "nextDialogueID": "trial-q1"
+        },
+        {
+          "text": "Noch nicht bereit",
+          "nextDialogueID": "action-back"
+        }
+      ]
+    },
+
+    {
+      "id": "trial-q1",
+      "text": "Frage 1: Wann warst du am Tatort?",
+      "choices": [
+        {
+          "text": "Morgens",
+          "nextDialogueID": "trial-lose"
+        },
+        {
+          "text": "Mittags",
+          "nextDialogueID": "trial-lose"
+        },
+        {
+          "text": "Abends",
+          "nextDialogueID": "trial-lose"
+        },
+        {
+          "text": "Nachts",
+          "nextDialogueID": "trial-q2",
+          "condition": "Beweisakte"
+        }
+      ]
+    },
+
+    {
+      "id": "trial-q2",
+      "text": "Frage 2: Wo hieltest du dich zur Mittagszeit auf?",
+      "choices": [
+        {
+          "text": "Im Hof",
+          "nextDialogueID": "trial-lose"
+        },
+        {
+          "text": "In der Bibliothek",
+          "nextDialogueID": "trial-q3",
+          "condition": "Zeugenprotokoll"
+        },
+        {
+          "text": "Im Gefängnis",
+          "nextDialogueID": "trial-lose"
+        }
+      ]
+    },
+
+    {
+      "id": "trial-q3",
+      "text": "Frage 3: Wo wurde die Tatwaffe gefunden?",
+      "choices": [
+        {
+          "text": "Bei dir",
+          "nextDialogueID": "trial-lose"
+        },
+        {
+          "text": "Im Hof",
+          "nextDialogueID": "trial-win",
+          "condition": "Tatort-Skizze"
+        },
+        {
+          "text": "In der Eingangshalle",
+          "nextDialogueID": "trial-lose"
+        }
+      ]
+    },
+
+    {
+      "id": "trial-win",
+      "text": "Der Richter: 'Die vorgelegten Beweise sind eindeutig. Sie sind freigesprochen!'\n\n=== FREISPRUCH — GEWONNENES ENDE ===\n\nDu hast die richtigen Beweise gefunden und den Prozess gewonnen.",
+      "choices": [
+        {
+          "text": "Spiel beenden",
+          "nextDialogueID": "game-over"
+        }
+      ]
+    },
+
+    {
+      "id": "trial-lose",
+      "text": "Der Richter sagt: 'Ohne stichhaltige Beweise ist das Urteil klar.'\n\n=== VERLORENES ENDE ===\n\nDu wirst für schuldig erklärt und ins Gefängnis geführt.",
+      "choices": [
+        {
+          "text": "Spiel beenden",
+          "nextDialogueID": "game-over"
+        }
+      ]
+    },
+
+    {
+      "id": "game-over",
+      "text": "Danke fürs Spielen! (Hinweis: Alle Items, die du erhalten hast, wurden beim Erhalt ausdrücklich als 'deinem Inventar hinzugefügt' angezeigt.)",
+      "choices": []
+    },
+
+    {
+      "id": "action-back",
+      "text": "Du gehst zurück zum Ort, an dem du warst.",
+      "choices": []
+    }
+  ]
+}

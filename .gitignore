@@ -27,3 +27,10 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+.idea/copilot.data.migration.agent.xml
+.idea/copilot.data.migration.ask.xml
+.idea/copilot.data.migration.ask2agent.xml
+.idea/copilot.data.migration.edit.xml
+.idea/libraries/com_google_code_gson_gson_2_13_1.xml
+.idea/libraries/google_code_gson.xml
+.idea/libraries/google_code_gson.xml

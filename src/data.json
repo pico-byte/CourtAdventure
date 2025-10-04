@@ -2,147 +2,227 @@
   "Items": [
     {
       "name": "Münze",
-      "description": "Eine glänzende Goldmünze. Kann im Automaten gegen Schokolade eingetauscht werden.",
+      "description": "Eine glänzende Goldmünze",
       "value": 1,
       "dialogues": ["inspect-coin"]
     },
     {
-      "name": "Einfacher Schlüssel",
-      "description": "Ein unscheinbarer, alter Schlüssel. Er passt an eine Zellentür im Gefängnis.",
+      "name": "Schlüssel",
+      "description": "Ein alter, rostiger Schlüssel",
       "value": 0,
-      "dialogues": ["inspect-simple-key"]
+      "dialogues": ["inspect-key"]
     },
     {
       "name": "Schokolade",
-      "description": "Eine süße Schokoladentafel. Besonders nützlich zum Tauschen oder Bestechen.",
+      "description": "Eine süße Schokoladentafel",
       "value": 0,
       "dialogues": ["inspect-chocolate"]
     },
     {
-      "name": "Beweisakte",
-      "description": "Beweisakte: In ihr steht klar und deutlich, dass der Angeklagte in der NACHT am Tatort gesehen wurde.",
+      "name": "Karte",
+      "description": "Eine geheimnisvolle Karte mit merkwürdigen Symbolen",
       "value": 0,
-      "dialogues": ["inspect-akte"]
+      "dialogues": ["inspect-map"]
     },
     {
-      "name": "Zeugenprotokoll",
-      "description": "Zeugenprotokoll: Ein Zeuge bestätigt, dass der Angeklagte zur MITTAGSZEIT in der BIBLIOTHEK war.",
+      "name": "Kerze",
+      "description": "Eine brennende Kerze, die warmes Licht spendet",
       "value": 0,
-      "dialogues": ["inspect-zeugen"]
+      "dialogues": ["inspect-candle"]
     },
     {
-      "name": "Tatort-Skizze",
-      "description": "Skizze des Tatorts: Die Skizze zeigt, dass die Tatwaffe IM HOF gefunden wurde, nicht bei dir.",
+      "name": "Goldener Ring",
+      "description": "Ein prachtvoller Ring mit eingraviertem Wappen",
+      "value": 3,
+      "dialogues": ["inspect-ring"]
+    },
+    {
+      "name": "Altes Buch",
+      "description": "Ein staubiges Buch mit unleserlichen Runen",
       "value": 0,
-      "dialogues": ["inspect-skizze"]
+      "dialogues": ["inspect-book"]
+    },
+    {
+      "name": "Silbermünze",
+      "description": "Eine schwere Silbermünze aus vergangener Zeit",
+      "value": 2,
+      "dialogues": ["inspect-silver-coin"]
+    },
+    {
+      "name": "Heiltrank",
+      "description": "Eine kleine Flasche mit grünlicher Flüssigkeit",
+      "value": 0,
+      "dialogues": ["inspect-potion"]
+    },
+    {
+      "name": "Eisenschlüssel",
+      "description": "Ein massiver Eisenschlüssel mit komplexem Bart",
+      "value": 0,
+      "dialogues": ["inspect-iron-key"]
     }
   ],
-
   "Stationary": [
     {
       "name": "Snackautomat",
-      "description": "Ein alter Automat mit Schokolade hinter Glas.",
+      "description": "Ein alter Automat mit Schokolade",
       "dialogues": ["snack-dialogue"]
     },
     {
-      "name": "Tor Wächter",
-      "description": "Ein mürrischer Wächter am Ausgang. Geld oder Süßes beeinflusst ihn.",
-      "dialogues": ["entry-guard"]
+      "name": "Wächter",
+      "description": "Ein strenger Wächter am Tor",
+      "dialogues": ["guard-dialogue"]
     },
     {
-      "name": "Richter",
-      "description": "Der Richter wartet im Gerichtssaal. Er führt den Prozess und stellt dir die Fragen.",
-      "dialogues": ["trial-start"]
+      "name": "Mysteriöser Händler",
+      "description": "Ein geheimnisvoller Händler in dunkler Robe",
+      "dialogues": ["merchant-dialogue"]
     },
     {
-      "name": "Rezeption",
-      "description": "Die Empfangsdame verwaltet verlorene Gegenstände und Akten.",
-      "dialogues": ["reception-dialogue"]
+      "name": "Alter Mönch",
+      "description": "Ein weiser alter Mönch mit freundlichen Augen",
+      "dialogues": ["monk-dialogue"]
     },
     {
-      "name": "Gefängniszelle",
-      "description": "Eine verschlossene Zellentür im Gefängnis. Sie lässt sich mit einem passenden Schlüssel öffnen.",
-      "dialogues": ["cell-dialogue"]
-    },
-    {
-      "name": "Obdachloser",
-      "description": "Ein abgemagerter Mann im Hinterhof. Er bietet dir einen Handel an.",
-      "dialogues": ["obdachloser-dialogue"]
-    },
-    {
-      "name": "Insasse",
-      "description": "Ein Gefangener, der möglicherweise Informationen hat — wenn du ihm hilfst.",
+      "name": "Gefangener",
+      "description": "Ein verzweifelter Gefangener hinter Gittern",
       "dialogues": ["prisoner-dialogue"]
     },
     {
-      "name": "Gegnerischer Anwalt",
-      "description": "Der gegnerische Anwalt sitzt neben dem Richter und wirft dir böse Blicke zu.",
-      "dialogues": ["opposing-lawyer-dialogue"]
+      "name": "Wahrsagerin",
+      "description": "Eine mystische Frau mit glänzenden Augen",
+      "dialogues": ["fortune-teller-dialogue"]
+    },
+    {
+      "name": "Thron",
+      "description": "Ein majestätischer goldener Thron",
+      "dialogues": ["throne-dialogue"]
+    },
+    {
+      "name": "Brunnen",
+      "description": "Ein alter Steinbrunnen mit klarem Wasser",
+      "dialogues": ["well-dialogue"]
+    },
+    {
+      "name": "Schatztruhe",
+      "description": "Eine verzierte Holztruhe mit Eisenbeschlägen",
+      "dialogues": ["treasure-chest-dialogue"]
+    },
+    {
+      "name": "Altar",
+      "description": "Ein steinerner Altar mit eingemeißelten Symbolen",
+      "dialogues": ["altar-dialogue"]
     }
   ],
-
   "Locations": [
     {
-      "name": "Gerichtssaal",
-      "description": "Ein großer, heller Gerichtssaal. Hier wird dein Schicksal entschieden. Auf einem Tisch liegt eine Tatort-Skizze.",
-      "items": ["Tatort-Skizze"],
-      "stationary": ["Richter", "Gegnerischer Anwalt"]
-    },
-    {
-      "name": "Eingangshalle",
-      "description": "Eine saubere Halle mit Rezeption und Snackautomat. Hinter der Tür steht ein Wächter.",
-      "items": [],
-      "stationary": ["Rezeption", "Snackautomat", "Tor Wächter"]
-    },
-    {
-      "name": "Gefängnis",
-      "description": "Dunkel und eng. Hier befinden sich Zellen und ein Insasse, der etwas wissen könnte.",
-      "items": [],
-      "stationary": ["Gefängniszelle", "Insasse"]
-    },
-    {
-      "name": "Hinterhof",
-      "description": "Ein schmutziger Hinterhof. Zwischen dem Müll glänzt etwas – eine Münze.",
+      "name": "courtyard",
+      "description": "Der Innenhof mit einem alten Brunnen. Efeu rankt an den Steinmauern empor und verleiht dem Ort eine mystische Atmosphäre.",
       "items": ["Münze"],
-      "stationary": ["Obdachloser"]
+      "stationary": ["Snackautomat", "Brunnen"]
+    },
+    {
+      "name": "gate",
+      "description": "Ein großes eisernes Tor, von einem strengen Wächter bewacht. Dahinter führt ein Weg in die Freiheit.",
+      "items": ["Schlüssel"],
+      "stationary": ["Wächter"]
+    },
+    {
+      "name": "library",
+      "description": "Eine düstere Bibliothek voller alter Bücher. Staub tanzt im schwachen Lichtschein und die Luft riecht nach vergessenen Geheimnissen.",
+      "items": ["Altes Buch", "Kerze"],
+      "stationary": ["Alter Mönch"]
+    },
+    {
+      "name": "dungeon",
+      "description": "Ein feuchter Kerker tief unter der Erde. Tropfwasser hallt von den Wänden wider und Ketten hängen bedrohlich von der Decke.",
+      "items": [],
+      "stationary": ["Gefangener"]
+    },
+    {
+      "name": "marketplace",
+      "description": "Ein verlassener Marktplatz mit leeren Ständen. Nur ein einzelner Händler hält noch Wache über seine geheimnisvollen Waren.",
+      "items": ["Silbermünze"],
+      "stationary": ["Mysteriöser Händler"]
+    },
+    {
+      "name": "tower",
+      "description": "Die Spitze eines hohen Turms mit weitem Blick über das Land. Hier oben weht ein kühler Wind und die Sterne scheinen zum Greifen nah.",
+      "items": [],
+      "stationary": ["Wahrsagerin"]
+    },
+    {
+      "name": "throne-room",
+      "description": "Der prächtige Thronsaal mit hohen Säulen und goldenen Verzierungen. Ein Gefühl von Macht und Geheimnis liegt in der Luft.",
+      "items": [],
+      "stationary": ["Thron"]
+    },
+    {
+      "name": "chapel",
+      "description": "Eine kleine, friedliche Kapelle mit bunten Glasfenstern. Das Licht bricht sich in regenbogenfarbenen Mustern auf dem Steinboden.",
+      "items": ["Heiltrank"],
+      "stationary": ["Altar"]
+    },
+    {
+      "name": "treasury",
+      "description": "Die geheime Schatzkammer des Schlosses. Gold und Juwelen glitzern im Kerzenschein, doch der wahre Schatz könnte etwas ganz anderes sein.",
+      "items": [],
+      "stationary": ["Schatztruhe"]
     }
   ],
-
   "dialogues": [
     {
       "id": "inspect-coin",
-      "text": "Die Münze glänzt; sie kann im Automaten eingetauscht werden.",
+      "text": "Die Münze glänzt hell im Licht und trägt das Wappen des alten Königreichs.",
       "choices": []
     },
     {
-      "id": "inspect-simple-key",
-      "text": "Ein einfacher Schlüssel. Er könnte an einer Zellentür passen.",
+      "id": "inspect-key",
+      "text": "Der Schlüssel sieht wichtig aus. Vielleicht öffnet er mehr als nur Türen...",
       "choices": []
     },
     {
       "id": "inspect-chocolate",
-      "text": "Die Schokolade duftet verführerisch. Gut geeignet zum Tauschen oder Bestechen.",
+      "text": "Die Schokolade riecht herrlich süß. Sie könnte jemandem eine Freude machen.",
       "choices": []
     },
     {
-      "id": "inspect-akte",
-      "text": "Beweisakte: ‚Der Angeklagte wurde NACHTS am Tatort gesehen.‘ (Dieses Item befindet sich in deinem Inventar.)",
+      "id": "inspect-map",
+      "text": "Die Karte zeigt geheimnisvolle Pfade und verborgene Orte. Die Symbole scheinen zu leuchten.",
       "choices": []
     },
     {
-      "id": "inspect-zeugen",
-      "text": "Zeugenprotokoll: ‚Der Zeuge beobachtete den Angeklagten MITTAGS in der BIBLIOTHEK.‘ (Dieses Item befindet sich in deinem Inventar.)",
+      "id": "inspect-candle",
+      "text": "Die Kerze brennt mit ruhiger Flamme und spendet warmes Licht in der Dunkelheit.",
       "choices": []
     },
     {
-      "id": "inspect-skizze",
-      "text": "Tatort-Skizze: ‚Die Tatwaffe wurde IM HOF gefunden.‘ (Dieses Item befindet sich in deinem Inventar.)",
+      "id": "inspect-ring",
+      "text": "Der goldene Ring trägt das königliche Wappen. Er fühlt sich mächtig und bedeutsam an.",
       "choices": []
     },
-
+    {
+      "id": "inspect-book",
+      "text": "Das alte Buch enthält Geheimnisse längst vergangener Zeiten. Die Runen scheinen zu flüstern.",
+      "choices": []
+    },
+    {
+      "id": "inspect-silver-coin",
+      "text": "Die Silbermünze ist schwer und wertvoll. Auf einer Seite prangt das Bild eines Drachen.",
+      "choices": []
+    },
+    {
+      "id": "inspect-potion",
+      "text": "Der Heiltrank glüht sanft grün. Du spürst seine heilende Kraft bereits beim Anblick.",
+      "choices": []
+    },
+    {
+      "id": "inspect-iron-key",
+      "text": "Der Eisenschlüssel ist massiv und schwer. Er sieht aus, als könnte er die stärksten Schlösser öffnen.",
+      "choices": []
+    },
     {
       "id": "snack-dialogue",
-      "text": "Der Snackautomat zeigt glänzende Schokoladen hinter Glas.",
+      "text": "Ein Snackautomat summt leise vor sich hin. Du hörst, wie drinnen Schokolade wartet.",
       "onetime": false,
       "choices": [
         {
@@ -153,230 +233,80 @@
           "reward": "Schokolade"
         },
         {
-          "text": "Nicht kaufen",
+          "text": "Nichts kaufen",
           "nextDialogueID": "snack-cancel"
         }
       ]
     },
     {
       "id": "snack-after-buy",
-      "text": "Du wirfst die Münze ein, drückst den Knopf — eine Schokolade fällt heraus. Die Schokolade wurde deinem Inventar hinzugefügt.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
+      "text": "Du kaufst eine Schokolade. Sie fällt klappernd herunter und du steckst sie ein. Lecker!",
+      "choices": []
     },
     {
       "id": "snack-cancel",
-      "text": "Du entscheidest dich, nichts zu kaufen.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
+      "text": "Du gehst wieder vom Automaten weg, doch dein Magen knurrt leise.",
+      "choices": []
     },
-
     {
-      "id": "obdachloser-dialogue",
-      "text": "Der Obdachloser mustert dich misstrauisch und spricht dich an.",
+      "id": "guard-dialogue",
+      "text": "Der Wächter mustert dich mit durchdringendem Blick. 'Halt! Niemand verlässt das Schloss ohne Erlaubnis des Königs!'",
       "onetime": false,
       "choices": [
         {
-          "text": "Schokolade geben",
-          "nextDialogueID": "obdachloser-gives-key",
-          "condition": "Schokolade",
-          "remove": "Schokolade",
-          "reward": "Einfacher Schlüssel"
+          "text": "Den rostigen Schlüssel zeigen",
+          "nextDialogueID": "guard-key-fail",
+          "condition": "Schlüssel"
         },
         {
-          "text": "Ignorieren",
-          "nextDialogueID": "obdachloser-sad"
-        }
-      ]
-    },
-    {
-      "id": "obdachloser-gives-key",
-      "text": "Der Obdachloser nimmt die Schokolade dankbar und reicht dir einen alten Schlüssel. Der Schlüssel wurde deinem Inventar hinzugefügt.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-    {
-      "id": "obdachloser-sad",
-      "text": "Der Obdachloser seufzt und wendet sich ab.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-
-    {
-      "id": "prisoner-dialogue",
-      "text": "Der Insasse flüstert hinter den Gitterstäben: 'Ich weiß, wo eine Akte versteckt ist...'",
-      "onetime": false,
-      "choices": [
-        {
-          "text": "Schokolade geben (um seine Hilfe zu gewinnen)",
-          "nextDialogueID": "prisoner-gives-akte",
-          "condition": "Schokolade",
-          "remove": "Schokolade",
-          "reward": "Beweisakte"
+          "text": "Den Eisenschlüssel zeigen (FLUCHT)",
+          "nextDialogueID": "guard-opens-escape",
+          "condition": "Eisenschlüssel"
         },
         {
-          "text": "Nach Hinweisen fragen",
-          "nextDialogueID": "prisoner-hint"
+          "text": "Den goldenen Ring zeigen",
+          "nextDialogueID": "guard-ring-partial",
+          "condition": "Goldener Ring"
         },
         {
-          "text": "Gehen",
-          "nextDialogueID": "prisoner-leave"
-        }
-      ]
-    },
-    {
-      "id": "prisoner-gives-akte",
-      "text": "Der Insasse isst die Schokolade und reicht dir eine Beweisakte. Die Beweisakte wurde deinem Inventar hinzugefügt.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-    {
-      "id": "prisoner-hint",
-      "text": "'Die Akte war in einer Zelle versteckt. Ein passender Schlüssel könnte die Tür öffnen.'",
-      "choices": [
-        {
-          "text": "Verstanden",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-    {
-      "id": "prisoner-leave",
-      "text": "Du gehst weiter; der Insasse bleibt zurück und seufzt.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-
-    {
-      "id": "cell-dialogue",
-      "text": "Die Zellentür ist fest verschlossen. Ein passender Schlüssel könnte sie öffnen.",
-      "onetime": false,
-      "choices": [
-        {
-          "text": "Mit dem einfachen Schlüssel öffnen (Schlüssel bleibt in deinem Inventar)",
-          "nextDialogueID": "cell-open",
-          "condition": "Einfacher Schlüssel",
-          "reward": "Beweisakte"
+          "text": "Ring UND Eisenschlüssel zeigen (KÖNIGLICHE FLUCHT)",
+          "nextDialogueID": "guard-royal-escape",
+          "condition": "Goldener Ring"
         },
         {
-          "text": "Weggehen",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-    {
-      "id": "cell-open",
-      "text": "Die Tür klickt auf. Du findest eine Beweisakte in der Zelle. Die Beweisakte wurde deinem Inventar hinzugefügt.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-
-    {
-      "id": "reception-dialogue",
-      "text": "Die Empfangsdame mustert deine Funde: 'Wenn du etwas vorzeigst, helfe ich dir gerne.'",
-      "onetime": false,
-      "choices": [
-        {
-          "text": "Einfachen Schlüssel vorzeigen",
-          "nextDialogueID": "reception-key-info",
-          "condition": "Einfacher Schlüssel",
-          "reward": "Zeugenprotokoll"
-        },
-        {
-          "text": "Tatort-Skizze vorzeigen",
-          "nextDialogueID": "reception-sketch",
-          "condition": "Tatort-Skizze",
-          "reward": "Zeugenprotokoll"
-        },
-        {
-          "text": "Nichts vorzeigen",
-          "nextDialogueID": "reception-farewell"
-        }
-      ]
-    },
-    {
-      "id": "reception-key-info",
-      "text": "Die Dame lächelt: 'Danke – das ist unser verlorener Schlüssel. Hier, nimm dieses Zeugenprotokoll.'\nDas Zeugenprotokoll wurde deinem Inventar hinzugefügt.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-    {
-      "id": "reception-sketch",
-      "text": "Die Dame betrachtet die Skizze: 'Sehr nützlich. Hier ist eine Zusammenfassung der Zeugenaussagen.'\nDas Zeugenprotokoll wurde deinem Inventar hinzugefügt.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-    {
-      "id": "reception-farewell",
-      "text": "Die Empfangsdame nickt freundlich und wendet sich wieder ihrer Arbeit zu.",
-      "choices": [
-        {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
-        }
-      ]
-    },
-
-    {
-      "id": "entry-guard",
-      "text": "Der Wächter am Tor knurrt: 'Niemand verlässt diesen Ort ohne Grund.'",
-      "onetime": false,
-      "choices": [
-        {
-          "text": "Mit Schokolade bestechen",
-          "nextDialogueID": "guard-bribe",
-          "condition": "Schokolade",
-          "remove": "Schokolade"
-        },
-        {
-          "text": "Anklopfen und fragen",
+          "text": "Zurückgehen",
           "nextDialogueID": "guard-ignore"
-        },
-        {
-          "text": "Weggehen",
-          "nextDialogueID": "action-back"
         }
       ]
     },
     {
-      "id": "guard-bribe",
-      "text": "Der Wächter schnappt die Schokolade und wendet sich ab. 'Na gut, geh schnell.'\nDu hast das Tor passiert — FLUCHT MÖGLICH (NEUTRALES ENDE).",
+      "id": "guard-key-fail",
+      "text": "Der Wächter schüttelt den Kopf. 'Dieser alte Schlüssel ist wertlos. Du brauchst den königlichen Eisenschlüssel!'",
+      "choices": []
+    },
+    {
+      "id": "guard-opens",
+      "text": "Der Wächter erkennt den königlichen Eisenschlüssel und verneigt sich. 'Vergebt mir, Euer Hoheit. Das Tor steht Euch offen!' Du bist frei!",
+      "choices": []
+    },
+    {
+      "id": "guard-opens-escape",
+      "text": "=== FLUCHT ENDE ===\n\nDer Wächter sieht den Eisenschlüssel und weicht zurück. 'Ein Fluchtversuch? Holt die Wachen!' Doch du bist schneller und entkommst durch das Tor.\n\nDu rennst durch die Nacht, bis das Schloss nur noch ein dunkler Schatten am Horizont ist. Du bist frei, aber als Flüchtling. Dein Abenteuer ist zu Ende.\n\n*** SPIEL BEENDET - FLUCHT ERFOLGREICH ***",
+      "choices": [
+        {
+          "text": "Spiel beenden",
+          "nextDialogueID": "game-over"
+        }
+      ]
+    },
+    {
+      "id": "guard-ring-partial",
+      "text": "Der Wächter starrt auf den Ring. 'Das königliche Siegel! Aber... wo ist der Schlüssel? Ohne ihn kann ich Euch nicht durchlassen.'",
+      "choices": []
+    },
+    {
+      "id": "guard-royal-escape",
+      "text": "=== KÖNIGLICHES ENDE ===\n\nDer Wächter sieht den goldenen Ring und den Eisenschlüssel. Seine Augen weiten sich vor Ehrfurcht und er fällt auf die Knie.\n\n'Eure Hoheit! Vergebt mir, ich habe Euch nicht erkannt! Das königliche Siegel und der Schlüssel der Macht!' Das Tor öffnet sich weit.\n\nDu schreitest majestätisch hinaus, nicht als Flüchtling, sondern als rechtmäßiger Herrscher. Die Wachen verneigen sich. Du hast deine wahre Identität zurückgewonnen.\n\n*** SPIEL BEENDET - KÖNIGLICHE FLUCHT ERFOLGREICH ***",
       "choices": [
         {
           "text": "Spiel beenden",
@@ -386,138 +316,382 @@
     },
     {
       "id": "guard-ignore",
-      "text": "Der Wächter bleibt misstrauisch und schenkt dir keine Beachtung.",
+      "text": "Du wendest dich ab. Der Wächter beobachtet dich weiterhin argwöhnisch.",
+      "choices": []
+    },
+    {
+      "id": "merchant-dialogue",
+      "text": "Der mysteriöse Händler lächelt unter seiner Kapuze. 'Willkommen, Reisender. Ich handle mit seltenen Gütern...'",
+      "onetime": false,
       "choices": [
         {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
+          "text": "Nach Waren fragen",
+          "nextDialogueID": "merchant-wares"
+        },
+        {
+          "text": "Schokolade anbieten",
+          "nextDialogueID": "merchant-chocolate",
+          "condition": "Schokolade",
+          "remove": "Schokolade",
+          "reward": "Karte"
+        },
+        {
+          "text": "Silbermünze gegen Information tauschen",
+          "nextDialogueID": "merchant-info",
+          "condition": "Silbermünze",
+          "remove": "Silbermünze"
+        },
+        {
+          "text": "Gehen",
+          "nextDialogueID": "merchant-farewell"
         }
       ]
     },
-
     {
-      "id": "opposing-lawyer-dialogue",
-      "text": "Der gegnerische Anwalt sortiert seine Belege und lächelt schadenfroh.",
+      "id": "merchant-wares",
+      "text": "'Ich verkaufe Geheimnisse und seltene Artefakte. Bringt mir etwas Süßes, und ich zeige Euch meine besonderen Waren.'",
+      "choices": []
+    },
+    {
+      "id": "merchant-chocolate",
+      "text": "'Ah, Schokolade! Wie köstlich!' Er gibt dir eine geheimnisvolle Karte. 'Diese zeigt versteckte Pfade. Nutzt sie weise.'",
+      "choices": []
+    },
+    {
+      "id": "merchant-info",
+      "text": "'Ihr wollt Informationen? Der Gefangene im Kerker kennt das Geheimnis des Eisenschlüssels. Aber zuerst müsst Ihr ihm helfen.'",
+      "choices": []
+    },
+    {
+      "id": "merchant-farewell",
+      "text": "Der Händler nickt höflich. 'Mögen die Schatten Euch beschützen, Reisender.'",
+      "choices": []
+    },
+    {
+      "id": "monk-dialogue",
+      "text": "Der alte Mönch blickt von seinem Buch auf. 'Seid gegrüßt, Kind. Diese Bibliothek hütet uraltes Wissen.'",
+      "onetime": false,
       "choices": [
         {
-          "text": "Weiter",
-          "nextDialogueID": "action-back"
+          "text": "Nach dem alten Buch fragen",
+          "nextDialogueID": "monk-book",
+          "condition": "Altes Buch"
+        },
+        {
+          "text": "Nach dem Ausweg fragen",
+          "nextDialogueID": "monk-escape"
+        },
+        {
+          "text": "Die Karte zeigen",
+          "nextDialogueID": "monk-map",
+          "condition": "Karte"
+        },
+        {
+          "text": "Gehen",
+          "nextDialogueID": "monk-farewell"
         }
       ]
     },
-
     {
-      "id": "trial-start",
-      "text": "Der Richter erhebt sich: 'Der Prozess beginnt. Ich werde dir drei Fragen stellen. Nur wenn du alle richtig beantwortest, wirst du freigesprochen.'",
+      "id": "monk-book",
+      "text": "'Ah, Ihr habt das Buch der Runen gefunden! Es spricht von einem Gefangenen, der den Schlüssel zur Freiheit besitzt. Sucht ihn im tiefsten Kerker.'",
+      "choices": []
+    },
+    {
+      "id": "monk-escape",
+      "text": "'Die Freiheit liegt jenseits des großen Tors, doch der Wächter ist streng. Nur der königliche Eisenschlüssel kann Euch befreien.'",
+      "choices": []
+    },
+    {
+      "id": "monk-map",
+      "text": "'Diese Karte... sie zeigt den Weg zur Schatzkammer! Dort findet Ihr vielleicht, was Ihr sucht. Nehmt eine Kerze mit - es ist dunkel dort unten.'",
+      "choices": []
+    },
+    {
+      "id": "monk-farewell",
+      "text": "Der Mönch lächelt weise. 'Geht in Frieden, und möge das Wissen Euch leiten.'",
+      "choices": []
+    },
+    {
+      "id": "prisoner-dialogue",
+      "text": "Der Gefangene blickt hoffnungsvoll durch die Gitterstäbe. 'Bitte... ich sitze hier seit Jahren ein. Helft mir!'",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Nach dem Eisenschlüssel fragen",
+          "nextDialogueID": "prisoner-key-info"
+        },
+        {
+          "text": "Heiltrank anbieten",
+          "nextDialogueID": "prisoner-healed",
+          "condition": "Heiltrank",
+          "remove": "Heiltrank",
+          "reward": "Eisenschlüssel"
+        },
+        {
+          "text": "Den rostigen Schlüssel zeigen",
+          "nextDialogueID": "prisoner-wrong-key",
+          "condition": "Schlüssel"
+        },
+        {
+          "text": "Gehen",
+          "nextDialogueID": "prisoner-despair"
+        }
+      ]
+    },
+    {
+      "id": "prisoner-key-info",
+      "text": "'Der Eisenschlüssel? Den habe ich hier versteckt, bevor sie mich einsperrten! Aber ich bin zu schwach... bringt mir einen Heiltrank!'",
+      "choices": []
+    },
+    {
+      "id": "prisoner-healed",
+      "text": "Der Gefangene trinkt dankbar. 'Ah, ich fühle mich wieder stark!' Er reicht dir den Eisenschlüssel. 'Nehmt ihn und seid frei! Ich werde hier auf bessere Zeiten warten.'",
+      "choices": [],
+      "reward": "Eisenschlüssel"
+    },
+    {
+      "id": "prisoner-wrong-key",
+      "text": "'Dieser Schlüssel kann mir nicht helfen - meine Zelle hat gar kein Schloss. Ich bin durch einen Fluch gefangen!'",
+      "choices": []
+    },
+    {
+      "id": "prisoner-despair",
+      "text": "Der Gefangene seufzt tief. 'Vergesst mich nicht... eines Tages werde ich wieder frei sein.'",
+      "choices": []
+    },
+    {
+      "id": "fortune-teller-dialogue",
+      "text": "Die Wahrsagerin blickt in ihre Kristallkugel. 'Ich sehe Euer Schicksal, Wanderer. Doch Visionen haben ihren Preis...'",
+      "onetime": false,
+      "choices": [
+        {
+          "text": "Goldmünze für eine Prophezeiung geben",
+          "nextDialogueID": "fortune-gold-vision",
+          "condition": "Münze",
+          "remove": "Münze"
+        },
+        {
+          "text": "Silbermünze für Ratschlag geben",
+          "nextDialogueID": "fortune-silver-advice",
+          "condition": "Silbermünze",
+          "remove": "Silbermünze"
+        },
+        {
+          "text": "Kostenlosen Rat erbitten",
+          "nextDialogueID": "fortune-free-advice"
+        },
+        {
+          "text": "Gehen",
+          "nextDialogueID": "fortune-farewell"
+        }
+      ]
+    },
+    {
+      "id": "fortune-gold-vision",
+      "text": "'Ich sehe... einen Heiltrank in der heiligen Kapelle. Er wird dem leidenden Gefangenen neue Kraft schenken, und er wird Euch den Schlüssel zur Freiheit geben!'",
+      "choices": []
+    },
+    {
+      "id": "fortune-silver-advice",
+      "text": "'Der goldene Ring im Thronsaal trägt königliche Macht. Doch ohne den wahren Schlüssel ist er nur schönes Metall.'",
+      "choices": []
+    },
+    {
+      "id": "fortune-free-advice",
+      "text": "'Kostenlose Weisheit ist wenig wert, aber hier ist sie: Vertraute auf die Güte Eures Herzens. Helft anderen, und sie werden Euch helfen.'",
+      "choices": []
+    },
+    {
+      "id": "fortune-farewell",
+      "text": "Die Wahrsagerin nickt geheimnisvoll. 'Die Zukunft ist noch ungeschrieben, Wanderer.'",
+      "choices": []
+    },
+    {
+      "id": "throne-dialogue",
+      "text": "Der majestätische Thron strahlt königliche Macht aus. Auf der Armlehne glänzt etwas golden...",
       "onetime": true,
       "choices": [
         {
-          "text": "Los geht's",
-          "nextDialogueID": "trial-q1"
+          "text": "Den Ring nehmen",
+          "nextDialogueID": "throne-take-ring"
         },
         {
-          "text": "Noch nicht bereit",
-          "nextDialogueID": "action-back"
+          "text": "Sich auf den Thron setzen (HERRSCHERRR ENDE)",
+          "nextDialogueID": "throne-become-ruler",
+          "condition": "Goldener Ring"
+        },
+        {
+          "text": "Den Thron respektvoll betrachten",
+          "nextDialogueID": "throne-respect"
         }
       ]
     },
-
     {
-      "id": "trial-q1",
-      "text": "Frage 1: Wann warst du am Tatort?",
+      "id": "throne-take-ring",
+      "text": "Du nimmst vorsichtig den goldenen Ring vom Thron. Er fühlt sich warm an und scheint mit königlicher Autorität erfüllt zu sein.",
+      "choices": [],
+      "reward": "Goldener Ring"
+    },
+    {
+      "id": "throne-respect",
+      "text": "Du betrachtest den Thron ehrfürchtig. Die Macht vergangener Könige scheint noch immer in ihm zu wohnen.",
+      "choices": []
+    },
+    {
+      "id": "well-dialogue",
+      "text": "Der alte Brunnen plätschert leise. Das klare Wasser spiegelt dein Gesicht wider.",
+      "onetime": false,
       "choices": [
         {
-          "text": "Morgens",
-          "nextDialogueID": "trial-lose"
+          "text": "Wasser trinken",
+          "nextDialogueID": "well-drink"
         },
         {
-          "text": "Mittags",
-          "nextDialogueID": "trial-lose"
+          "text": "In den Brunnen blicken",
+          "nextDialogueID": "well-look"
         },
         {
-          "text": "Abends",
-          "nextDialogueID": "trial-lose"
-        },
-        {
-          "text": "Nachts",
-          "nextDialogueID": "trial-q2",
-          "condition": "Beweisakte"
+          "text": "Eine Münze hineinwerfen und sich etwas wünschen",
+          "nextDialogueID": "well-wish",
+          "condition": "Münze",
+          "remove": "Münze"
         }
       ]
     },
-
     {
-      "id": "trial-q2",
-      "text": "Frage 2: Wo hieltest du dich zur Mittagszeit auf?",
+      "id": "well-drink",
+      "text": "Das Wasser ist erfrischend und klar. Du fühlst dich gestärkt und bereit für neue Abenteuer.",
+      "choices": []
+    },
+    {
+      "id": "well-look",
+      "text": "Im Wasser siehst du dein Spiegelbild - und dahinter die Umrisse alter Münzen auf dem Grund.",
+      "choices": []
+    },
+    {
+      "id": "well-wish",
+      "text": "Du wirfst die Münze hinein und wünschst dir Freiheit. Das Wasser kräuselt sich, als würde der Brunnen deinen Wunsch erhören.",
+      "choices": []
+    },
+    {
+      "id": "treasure-chest-dialogue",
+      "text": "Die Schatztruhe ist fest verschlossen. Ein kompliziertes Schloss versperrt den Weg zu ihrem Inhalt.",
+      "onetime": true,
       "choices": [
         {
-          "text": "Im Hof",
-          "nextDialogueID": "trial-lose"
+          "text": "Mit dem rostigen Schlüssel öffnen",
+          "nextDialogueID": "chest-open-rusty",
+          "condition": "Schlüssel"
         },
         {
-          "text": "In der Bibliothek",
-          "nextDialogueID": "trial-q3",
-          "condition": "Zeugenprotokoll"
+          "text": "Mit dem Eisenschlüssel öffnen",
+          "nextDialogueID": "chest-wrong-key",
+          "condition": "Eisenschlüssel"
         },
         {
-          "text": "Im Gefängnis",
-          "nextDialogueID": "trial-lose"
+          "text": "Die Karte konsultieren",
+          "nextDialogueID": "chest-map-hint",
+          "condition": "Karte"
+        },
+        {
+          "text": "Aufgeben",
+          "nextDialogueID": "chest-give-up"
         }
       ]
     },
-
     {
-      "id": "trial-q3",
-      "text": "Frage 3: Wo wurde die Tatwaffe gefunden?",
+      "id": "chest-open-rusty",
+      "text": "Überraschenderweise passt der rostige Schlüssel! Die Truhe öffnet sich mit einem zufriedenen Klicken. Drinnen findest du eine Silbermünze - der wahre Schatz war die Geduld!",
+      "choices": [],
+      "reward": "Silbermünze"
+    },
+    {
+      "id": "chest-wrong-key",
+      "text": "Der Eisenschlüssel ist zu groß für dieses Schloss. Manchmal ist das Einfache die Lösung, nicht das Mächtige.",
+      "choices": []
+    },
+    {
+      "id": "chest-map-hint",
+      "text": "Die Karte zeigt ein Symbol - einen rostigen Schlüssel neben einer Truhe. Ein alter, einfacher Schlüssel scheint der richtige zu sein.",
+      "choices": []
+    },
+    {
+      "id": "chest-give-up",
+      "text": "Du wendest dich von der Truhe ab. Manche Geheimnisse offenbaren sich nur den Geduldigen.",
+      "choices": []
+    },
+    {
+      "id": "altar-dialogue",
+      "text": "Der heilige Altar strahlt Frieden aus. Die eingemeißelten Symbole scheinen im Kerzenlicht zu leben.",
+      "onetime": false,
       "choices": [
         {
-          "text": "Bei dir",
-          "nextDialogueID": "trial-lose"
+          "text": "Das alte Buch auf den Altar legen",
+          "nextDialogueID": "altar-book-blessing",
+          "condition": "Altes Buch",
+          "remove": "Altes Buch"
         },
         {
-          "text": "Im Hof",
-          "nextDialogueID": "trial-win",
-          "condition": "Tatort-Skizze"
+          "text": "Eine Kerze anzünden",
+          "nextDialogueID": "altar-light-candle",
+          "condition": "Kerze"
         },
         {
-          "text": "In der Eingangshalle",
-          "nextDialogueID": "trial-lose"
-        }
-      ]
-    },
-
-    {
-      "id": "trial-win",
-      "text": "Der Richter: 'Die vorgelegten Beweise sind eindeutig. Sie sind freigesprochen!'\n\n=== FREISPRUCH — GEWONNENES ENDE ===\n\nDu hast die richtigen Beweise gefunden und den Prozess gewonnen.",
-      "choices": [
+          "text": "Beten",
+          "nextDialogueID": "altar-pray"
+        },
         {
-          "text": "Spiel beenden",
-          "nextDialogueID": "game-over"
+          "text": "Respektvoll zurücktreten",
+          "nextDialogueID": "altar-respect"
         }
       ]
     },
-
     {
-      "id": "trial-lose",
-      "text": "Der Richter sagt: 'Ohne stichhaltige Beweise ist das Urteil klar.'\n\n=== VERLORENES ENDE ===\n\nDu wirst für schuldig erklärt und ins Gefängnis geführt.",
-      "choices": [
-        {
-          "text": "Spiel beenden",
-          "nextDialogueID": "game-over"
-        }
-      ]
+      "id": "altar-book-blessing",
+      "text": "Als du das alte Buch auf den Altar legst, beginnen die Runen zu leuchten. Ein warmes Licht erfüllt die Kapelle und ein Heiltrank materialisiert sich vor dir. Die Götter haben dein Opfer angenommen.",
+      "choices": [],
+      "reward": "Heiltrank"
     },
-
+    {
+      "id": "altar-light-candle",
+      "text": "Du zündest eine Kerze an und stellst sie auf den Altar. Das warme Licht vertreibt die Schatten und bringt Frieden in dein Herz.",
+      "choices": []
+    },
+    {
+      "id": "altar-pray",
+      "text": "Du betest inbrünstig um Führung und Schutz. Ein Gefühl des Friedens erfüllt dich, und du weißt, dass deine Gebete erhört wurden.",
+      "choices": []
+    },
+    {
+      "id": "altar-respect",
+      "text": "Du verneigst dich respektvoll vor dem heiligen Ort und trittst zurück. Manche Orte sind zu heilig für weltliche Sorgen.",
+      "choices": []
+    },
     {
       "id": "game-over",
-      "text": "Danke fürs Spielen! (Hinweis: Alle Items, die du erhalten hast, wurden beim Erhalt ausdrücklich als 'deinem Inventar hinzugefügt' angezeigt.)",
+      "text": "Danke fürs Spielen! Das Abenteuer ist zu Ende.",
       "choices": []
     },
-
     {
-      "id": "action-back",
-      "text": "Du gehst zurück zum Ort, an dem du warst.",
-      "choices": []
+      "id": "scholar-ending",
+      "text": "=== GELEHRTEN ENDE ===\n\nMit all deinem gesammelten Wissen - dem alten Buch, der mystischen Karte und der Weisheit des Mönchs - verstehst du endlich die wahre Natur dieses Ortes.\n\nDas Schloss ist eine Prüfung, ein Test für würdige Seelen. Du hast alle Geheimnisse entschlüsselt und alle Rätsel gelöst.\n\nEin warmes Licht umhüllt dich und du findest dich in einer großen Bibliothek wieder - der Ort, wo alle großen Gelehrten der Welt zusammenkommen.\n\n*** SPIEL BEENDET - DU BIST EIN MEISTER DER GEHEIMNISSE ***",
+      "choices": [
+        {
+          "text": "Spiel beenden",
+          "nextDialogueID": "game-over"
+        }
+      ]
+    },
+    {
+      "id": "throne-become-ruler",
+      "text": "=== HERRSCHER ENDE ===\n\nDu setzt dich auf den majestätischen Thron. Der goldene Ring an deinem Finger glüht warm und plötzlich verstehst du alles.\n\nDu warst nie ein Gefangener - du warst der rechtmäßige Erbe, der sein Gedächtnis verloren hatte! Das Schloss ist dein Königreich.\n\nDie Türen öffnen sich und Diener strömen herein, verneigen sich vor ihrem wiedergefundenen Herrscher. Du regierst nun über das gesamte Reich.\n\n*** SPIEL BEENDET - DU BIST DER WAHRE KÖNIG ***",
+      "choices": [
+        {
+          "text": "Spiel beenden",
+          "nextDialogueID": "game-over"
+        }
+      ]
     }
   ]
 }
